@@ -1,0 +1,125 @@
+/* Citizen presentation layer. Keep office styles, map geometry and workflows intact. */
+#screen-public.user-logged-in {
+  --citizen-surface: var(--bg-surface);
+  --citizen-soft: color-mix(in srgb, var(--accent) 7%, var(--bg-surface));
+  --citizen-line: color-mix(in srgb, var(--border) 75%, transparent);
+  --citizen-shadow: 0 4px 20px rgba(20, 48, 70, .09);
+}
+#screen-public.user-logged-in .citizen-sidebar {
+  background: var(--citizen-surface) !important;
+  border-right: 1px solid var(--citizen-line);
+  box-shadow: 4px 0 24px rgba(20, 48, 70, .04);
+  backdrop-filter: none !important;
+}
+#screen-public.user-logged-in .citizen-sidebar .pub-sidebar-head { min-height: 88px; padding: 20px 22px; border-bottom: 1px solid var(--citizen-line); }
+#screen-public.user-logged-in .citizen-sidebar .topbar-icon { width: 36px !important; height: 36px !important; border-radius: 11px !important; box-shadow: none; }
+.citizen-brand { display: grid; gap: 4px; border: 0; padding: 0; background: transparent; color: var(--text-primary); font: inherit; text-align: left; cursor: pointer; }
+.citizen-brand strong { font-size: 19px; letter-spacing: -.6px; }
+.citizen-brand > span { font-size: 10px; font-weight: 500; color: var(--text-muted); }
+#screen-public.user-logged-in .citizen-sidebar .sidebar-scroll { padding: 18px 14px !important; gap: 5px !important; overflow-y: auto; min-height: 0; }
+.citizen-nav-group { margin: 13px 12px 5px; color: var(--text-muted); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.citizen-nav-group:first-child { margin-top: 0; }
+#screen-public.user-logged-in .citizen-sidebar .pub-nav-item { display: flex; flex-shrink: 0; align-items: center; justify-content: space-between; position: relative; width: 100%; min-height: 61px; padding: 11px 12px; border: 1px solid transparent; border-radius: 12px; background: transparent; color: var(--text-secondary); font: inherit; text-align: left; cursor: pointer; transition: background .15s ease, border-color .15s ease; }
+#screen-public.user-logged-in .citizen-sidebar .pub-nav-item:hover { background: var(--citizen-soft); }
+#screen-public.user-logged-in .citizen-sidebar .pub-nav-item.active { background: var(--citizen-soft); border-color: color-mix(in srgb, var(--accent) 24%, transparent); color: var(--accent); box-shadow: none; }
+#screen-public.user-logged-in .citizen-sidebar .pub-nav-item.active::before { content: ''; position: absolute; left: -1px; top: 16px; bottom: 16px; width: 3px; border-radius: 4px; background: var(--accent); }
+#screen-public.user-logged-in .citizen-sidebar .nav-icon { flex-shrink: 0; width: 32px; height: 32px; border-radius: 9px; }
+#screen-public.user-logged-in .citizen-sidebar .active .nav-icon { color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.citizen-nav-copy { display: grid; gap: 4px; min-width: 0; }
+#screen-public.user-logged-in .citizen-sidebar .nav-label { font-size: calc(13px * var(--user-text-scale, 1)); font-weight: 650; letter-spacing: -.1px; }
+.citizen-nav-description { font-size: calc(10.5px * var(--user-text-scale, 1)); color: var(--text-muted); line-height: 1.35; }
+#screen-public.user-logged-in .citizen-sidebar .pub-sidebar-footer { padding: 16px; background: var(--citizen-soft); border-top: 1px solid var(--citizen-line); }
+#screen-public.user-logged-in .citizen-sidebar .avatar { flex-shrink: 0; width: 36px; height: 36px; border-radius: 11px; background: var(--accent); color: #fff; box-shadow: none; }
+.citizen-account-copy { flex: 1; min-width: 0; }
+.citizen-account-copy > div { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.5; }
+#screen-public.user-logged-in .citizen-sidebar .btn-icon { min-height: 36px; min-width: 36px; border-radius: 10px; background: var(--citizen-surface); }
+
+/* Give floating controls one consistent surface, with readable light/dark contrast. */
+#screen-public.user-logged-in .search-fab.is-user-search { height: 62px !important; padding: 0 10px 0 18px !important; border-radius: 16px !important; background: var(--citizen-surface) !important; border: 1px solid var(--citizen-line) !important; box-shadow: var(--citizen-shadow) !important; gap: 12px; }
+#screen-public.user-logged-in .search-fab.is-user-search:focus-within { border-color: var(--accent) !important; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 13%, transparent), var(--citizen-shadow) !important; }
+.citizen-search-field { display: flex; flex-direction: column; justify-content: center; flex: 1; min-width: 0; height: 100%; cursor: text; }
+.citizen-search-field > span { font-size: 10px; font-weight: 700; letter-spacing: .03em; color: var(--text-muted); margin-bottom: 3px; }
+#screen-public.user-logged-in .search-fab .citizen-search-field input { flex: none; width: 100%; height: 24px; margin: 0; padding: 0; font-family: inherit; font-size: 13px; line-height: 24px; }
+#screen-public.user-logged-in .search-fab input::placeholder { color: var(--text-muted); opacity: 1; }
+#screen-public.user-logged-in .search-fab .notification { box-shadow: none !important; border: 0; background: var(--citizen-soft) !important; border-radius: 11px !important; transform: none !important; }
+#screen-public.user-logged-in .search-fab .notif-badge { min-width: 17px !important; padding: 2px 4px !important; font-size: 9px !important; box-shadow: none !important; }
+#screen-public.user-logged-in .search-fab .bell-ring-anim { animation: none; }
+#screen-public.user-logged-in .search-fab .profile { border: 0; padding: 0; background: transparent; font: inherit; border-radius: 11px; }
+#screen-public.user-logged-in .search-fab .profile .avatar { border-radius: 11px; box-shadow: none !important; border: 0 !important; }
+#screen-public.user-logged-in .search-fab .search-dropdown { box-sizing: border-box; border-radius: 16px !important; padding: 12px !important; box-shadow: var(--citizen-shadow) !important; max-height: min(460px, 65dvh); overflow-y: auto; }
+#screen-public.user-logged-in .search-fab .dropdown-menu { box-shadow: var(--citizen-shadow) !important; border-radius: 14px !important; }
+#screen-public.user-logged-in .cemetery-switcher-fab { background: var(--citizen-surface); border: 1px solid var(--citizen-line); border-radius: 16px; box-shadow: var(--citizen-shadow); gap: 6px; }
+#screen-public.user-logged-in .cemetery-switcher-fab::before { content: 'EXPLORE A CEMETERY'; grid-column: 1 / -1; font-size: 9px; font-weight: 700; letter-spacing: .09em; color: var(--text-muted); padding: 3px 8px 0; }
+#screen-public.user-logged-in .cemetery-switcher-fab button { background: var(--citizen-soft); color: var(--text-primary); border: 1px solid transparent; border-radius: 9px; font-family: inherit; font-size: 11px; min-height: 32px; padding: 6px 10px; box-shadow: none; }
+#screen-public.user-logged-in .cemetery-switcher-fab button:hover { border-color: var(--accent); color: var(--accent); background: var(--citizen-soft); transform: none; }
+#screen-public.user-logged-in .map-action-pill { background: var(--citizen-surface) !important; border: 1px solid var(--citizen-line) !important; border-radius: 14px !important; backdrop-filter: none !important; box-shadow: var(--citizen-shadow) !important; }
+#screen-public.user-logged-in .map-action-pill .pill-btn { width: 44px !important; height: 44px !important; border-bottom-color: var(--citizen-line) !important; color: var(--text-secondary) !important; }
+#screen-public.user-logged-in .map-action-pill .pill-btn:hover,
+#screen-public.user-logged-in .map-action-pill .guide-trigger:hover { background: var(--citizen-soft) !important; color: var(--accent) !important; }
+#screen-public.user-logged-in .map-action-pill .guide-trigger { min-height: 52px; font-size: 10px; color: var(--text-secondary); }
+#screen-public.user-logged-in .leaflet-basemap-choices { background: var(--citizen-surface); border-color: var(--citizen-line); box-shadow: var(--citizen-shadow); backdrop-filter: none; }
+#screen-public.user-logged-in .leaflet-basemap-button[aria-pressed="true"] { box-shadow: none; }
+[data-theme="light"] #screen-public.user-logged-in .leaflet-tile { filter: none; }
+
+/* Apply the same visual rhythm to citizen forms, tracking and saved places. */
+#screen-public.user-logged-in.has-active-page { background: var(--citizen-soft); }
+#screen-public.user-logged-in .pub-page { background: var(--citizen-surface); border: 1px solid var(--citizen-line); box-shadow: 0 2px 12px rgba(20,48,70,.04); backdrop-filter: none; border-radius: 20px; }
+#screen-public.user-logged-in .pub-page-header { padding-bottom: 22px; border-bottom: 1px solid var(--citizen-line); margin-bottom: 24px; gap: 14px; }
+.citizen-page-heading { flex: 1; min-width: min(220px, 100%); }
+.citizen-page-eyebrow { display: block; margin-bottom: 7px; font-size: 10px; font-weight: 700; letter-spacing: .12em; color: var(--accent); }
+#screen-public.user-logged-in .citizen-page-heading h1 { font-size: 25px; font-weight: 700; line-height: 1.25; letter-spacing: -.7px; color: var(--text-primary); margin: 0; }
+#screen-public.user-logged-in .citizen-page-heading p { font-size: calc(13px * var(--user-text-scale, 1)); color: var(--text-muted); line-height: 1.6; margin: 8px 0 0; }
+#screen-public.user-logged-in .pub-page .btn { border-radius: 10px; min-height: 38px; font-family: inherit; box-shadow: none; }
+#screen-public.user-logged-in .pub-page .btn:not(:disabled):hover { transform: none; }
+#screen-public.user-logged-in .pub-page .field-input { border-radius: 10px; min-height: 44px; }
+#screen-public.user-logged-in .pub-page :is(.service-card, .panel-card, .dashboard-tracker-panel, .application-tracker-card) { border-radius: 14px; box-shadow: none; }
+#screen-public.user-logged-in .pub-page .service-card:hover { transform: none; box-shadow: 0 3px 14px rgba(20,48,70,.06); }
+#screen-public.user-logged-in .pub-page .guide-start { background: var(--citizen-soft); border-color: var(--citizen-line); border-left-color: var(--accent); }
+#screen-public.user-logged-in :is(button, input, a):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+#screen-public.user-logged-in .search-fab input:focus-visible { outline: none; }
+
+@media (min-width: 769px) {
+  #screen-public.user-logged-in { --public-tools-top: 20px; }
+  #screen-public.user-logged-in.sidebar-open .search-fab.is-user-search { top: 20px !important; left: 304px !important; transform: none !important; width: min(480px, calc(100% - 682px)) !important; max-width: min(480px, calc(100% - 682px)) !important; }
+  #screen-public.user-logged-in .cemetery-switcher-fab { top: 20px; right: 24px; width: 330px; display: grid; grid-template-columns: 1fr 1fr; padding: 5px; }
+  #screen-public.user-logged-in .map-action-pill { top: 164px !important; right: 24px !important; }
+  #screen-public.user-logged-in .leaflet-basemap-control { top: 98px; right: 24px; }
+  #screen-public.user-logged-in .grave-panel.show { top: 98px; right: 88px; max-height: calc(100dvh - 122px); }
+  #screen-public.user-logged-in.has-selected-grave .leaflet-basemap-control { top: auto; bottom: 28px; right: 24px; }
+  #screen-public.user-logged-in.sidebar-open .pub-page { inset: 24px 24px 24px 304px !important; max-width: none !important; padding: 28px; }
+}
+@media (min-width: 769px) and (max-width: 1150px) {
+  #screen-public.user-logged-in { --public-tools-top: 96px; }
+  #screen-public.user-logged-in.sidebar-open .search-fab.is-user-search { width: calc(100% - 328px) !important; max-width: none !important; }
+  #screen-public.user-logged-in .cemetery-switcher-fab { top: 96px; right: 24px; width: min(330px, calc(100% - 328px)); }
+  #screen-public.user-logged-in .leaflet-basemap-control { top: 174px; }
+  #screen-public.user-logged-in .map-action-pill { top: 240px !important; }
+  #screen-public.user-logged-in .grave-panel.show { top: 174px; right: 80px; width: min(340px, calc(100% - 396px)) !important; max-height: calc(100dvh - 198px); }
+}
+@media (max-width: 768px) {
+  #screen-public.user-logged-in .citizen-sidebar { border-radius: 20px !important; box-shadow: 0 4px 24px rgba(20,48,70,.12) !important; }
+  #screen-public.user-logged-in .citizen-sidebar .sidebar-scroll { padding: 4px 6px !important; gap: 2px !important; overflow: visible; }
+  #screen-public.user-logged-in .citizen-sidebar .pub-nav-item { min-height: 0; height: 100% !important; padding: 4px 1px !important; }
+  #screen-public.user-logged-in .citizen-sidebar .pub-nav-item.active::before { display: none; }
+  #screen-public.user-logged-in .citizen-sidebar .pub-nav-item .nav-icon,
+  #screen-public.user-logged-in .citizen-sidebar .pub-nav-item.map-nav-item .nav-icon { width: 42px !important; height: 28px !important; border: 0 !important; border-radius: 9px !important; transform: none !important; filter: none !important; box-shadow: none !important; background: transparent !important; color: var(--text-muted) !important; }
+  #screen-public.user-logged-in .citizen-sidebar .pub-nav-item.active .nav-icon { background: var(--citizen-soft) !important; color: var(--accent) !important; }
+  #screen-public.user-logged-in .citizen-sidebar .pub-nav-item .nav-label { font-size: 10px !important; font-weight: 600 !important; transform: none !important; color: var(--text-muted) !important; letter-spacing: 0 !important; }
+  #screen-public.user-logged-in .citizen-sidebar .pub-nav-item.active .nav-label { color: var(--accent) !important; }
+  #screen-public.user-logged-in .search-fab.is-user-search { height: 56px !important; padding: 0 8px 0 12px !important; gap: 9px; }
+  #screen-public.user-logged-in .search-fab .citizen-search-field input { font-size: 16px !important; width: 100%; }
+  .citizen-search-field > span { font-size: 9px; }
+  #screen-public.user-logged-in .search-right-controls { gap: 2px !important; }
+  #screen-public.user-logged-in .search-fab .user-notification-menu { width: min(320px, calc(100vw - 112px)) !important; }
+  #screen-public.user-logged-in .cemetery-switcher-fab { top: calc(var(--map-toolbar-top) + 68px) !important; gap: 6px; }
+  #screen-public.user-logged-in .cemetery-switcher-fab::before { display: none; }
+  #screen-public.user-logged-in .cemetery-switcher-fab button { background: var(--citizen-surface); border: 1px solid var(--citizen-line); min-height: 40px; box-shadow: var(--citizen-shadow); }
+  #screen-public.user-logged-in .leaflet-basemap-control { top: calc(var(--map-toolbar-top) + 120px); }
+  #screen-public.user-logged-in .map-action-pill { top: calc(var(--map-toolbar-top) + 120px) !important; right: 16px !important; }
+  #screen-public.user-logged-in .pub-page { inset: 12px 12px 100px !important; padding: 20px 16px 28px !important; max-width: none !important; border-radius: 16px; }
+  #screen-public.user-logged-in .citizen-page-heading h1 { font-size: 23px; }
+  #screen-public.user-logged-in .pub-page-header { padding-bottom: 16px; margin-bottom: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #screen-public.user-logged-in :is(.pub-page, .service-card, .pub-nav-item, .search-fab, .profile, .nav-icon, .nav-label) { transition: none !important; animation: none !important; }
+}
